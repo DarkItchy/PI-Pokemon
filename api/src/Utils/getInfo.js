@@ -44,7 +44,7 @@ const apiInfo = async () => {
 
 const dbInfo = async () => {
   try {
-    await Pokemon.findAll({
+    return await Pokemon.findAll({
       include: {
         model: Type,
       },
@@ -58,10 +58,30 @@ const allInfo = async () => {
   try {
     const getApiInfo = await apiInfo();
     const getDbInfo = await dbInfo();
-    const getAllInfo = getDbInfo ? [...getApiInfo, ...getDbInfo] : getApiInfo;
+    const getAllInfo = getDbInfo ? [...getDbInfo, ...getApiInfo] : getApiInfo;
     return getAllInfo;
   } catch (e) {
     console.log(e, "Error en juntar información");
+  }
+};
+
+const allTypes = async () => {
+  try {
+    const getTypes = await axios.get("https://pokeapi.co/api/v2/type");
+    const info = getTypes.data.results.map((t) => {
+      return {
+        name: t.name,
+      };
+    });
+    info.forEach((el) => {
+      Type.findOrCreate({
+        where: {
+          name: el.name,
+        },
+      });
+    });
+  } catch (e) {
+    console.log(e, "Error al traet los types de la api");
   }
 };
 
@@ -96,4 +116,4 @@ const allInfo = async () => {
 //   }
 // };
 
-module.exports = { allInfo };
+module.exports = { allInfo, allTypes };

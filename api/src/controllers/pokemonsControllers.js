@@ -1,5 +1,5 @@
 const { filterByName, filterById } = require("../Utils/pokeFilters");
-const { Pokemon, Type } = require("../db");
+const { newPokemon } = require("../Utils/createPokemon");
 
 const getPokemons = async (req, res) => {
   try {
@@ -9,7 +9,8 @@ const getPokemons = async (req, res) => {
 
     res.json(result);
   } catch (e) {
-    res.send(e.toString()), console.log("Error en el controller get pokemons");
+    res.statu(400).send(e.toString()),
+      console.log(e, "Error en el controller get pokemons");
   }
 };
 
@@ -21,8 +22,19 @@ const getPokemonsById = async (req, res) => {
 
     res.json(result);
   } catch (e) {
-    console.log(e, "Error en el controller get pokemonsById");
+    res.status(400).send(e.toString()),
+      console.log(e, "Error en el controller get pokemonsById");
   }
 };
 
-module.exports = { getPokemons, getPokemonsById };
+const postPokemon = async (req, res) => {
+  try {
+    await newPokemon(req.body);
+    res.json("Pokemón creado con exito");
+  } catch (e) {
+    res.status(400).send(e.toString()),
+      console.log(e, "Error en el controller de post pokemon");
+  }
+};
+
+module.exports = { getPokemons, getPokemonsById, postPokemon };

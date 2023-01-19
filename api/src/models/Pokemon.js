@@ -58,10 +58,12 @@ module.exports = (sequelize) => {
 
     img: {
       type: DataTypes.STRING,
+      defaultValue: "https://i.ytimg.com/vi/3cLbFhxYPFY/maxresdefault.jpg"
     },
 
     createdInDb: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
       defaultValue: true,
     },
   }, {

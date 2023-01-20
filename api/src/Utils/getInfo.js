@@ -88,7 +88,7 @@ const allTypes = async () => {
 // const apiInfo = async () => {
 //   try {
 //     const response = await axios.get(
-//       "https://pokeapi.co/api/v2/pokemon?offset=0&limit=30",
+//       "https://pokeapi.co/api/v2/pokemon?offset=0&limit=40",
 //       { headers: { "Accept-Encoding": "gzip,deflate,compress" } }
 //     );
 //     const allInfo = await Promise.all(

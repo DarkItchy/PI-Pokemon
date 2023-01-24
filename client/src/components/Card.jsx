@@ -11,9 +11,8 @@ const Card = ({ img, name, types }) => {
       />
       <h3>{name}</h3>
       {types.map((t) => {
-        return (
-          <h5 key={t}>{typeof t === "object" ? `${t.name}\n` : `${t}\n`}</h5>
-        );
+        const name = typeof t === "object" ? t.name : t;
+        return <h5 key={name}>{name}</h5>;
       })}
     </div>
   );

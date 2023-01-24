@@ -1,7 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { filterByType } from "../actions";
 
 const OptionBar = () => {
+  const dispatch = useDispatch();
+
+  const handleFilterByType = (e) => {
+    dispatch(filterByType(e.target.value));
+  };
+
   return (
     <div>
       <h3>Ordenar</h3>
@@ -23,9 +30,9 @@ const OptionBar = () => {
         <option value={"Created"}>Creados</option>
       </select>
       Tipo:
-      <select title="Tipo">
-        <option value={"ALL"}>Todos</option>
-        <option value={"Normal"}>Normal</option>
+      <select onChange={e => handleFilterByType(e)} title="Tipo">
+        <option value={"All"}>Todos</option>
+        <option value={"normal"}>Normal</option>
         <option value={"fighting"}>Pelea</option>
         <option value={"flying"}>Volador</option>
         <option value={"poison"}>Veneno</option>

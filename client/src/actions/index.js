@@ -10,7 +10,7 @@ export const getPokemon = () => {
   };
 };
 
-export const filterByType = () => {
+export const filterByType = (payload) => {
   return {
     type: "FILTER_BY_TYPE",
     payload,

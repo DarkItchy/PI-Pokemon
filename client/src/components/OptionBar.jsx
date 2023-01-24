@@ -25,26 +25,26 @@ const OptionBar = () => {
       Tipo:
       <select title="Tipo">
         <option value={"ALL"}>Todos</option>
-        <option value={"1"}>Normal</option>
-        <option value={"2"}>Pelea</option>
-        <option value={"3"}>Volador</option>
-        <option value={"4"}>Veneno</option>
-        <option value={"5"}>Tierra</option>
-        <option value={"6"}>Roca</option>
-        <option value={"7"}>Insecto</option>
-        <option value={"8"}>Fantasma</option>
-        <option value={"9"}>Acero</option>
-        <option value={"10"}>Fuego</option>
-        <option value={"11"}>Agua</option>
-        <option value={"12"}>Hierba</option>
-        <option value={"13"}>Electrico</option>
-        <option value={"14"}>Psiquico</option>
-        <option value={"15"}>Hielo</option>
-        <option value={"16"}>Dragon</option>
-        <option value={"17"}>Oscuro</option>
-        <option value={"18"}>Hada</option>
-        <option value={"19"}>Desconocido</option>
-        <option value={"20"}>Sombra</option>
+        <option value={"Normal"}>Normal</option>
+        <option value={"fighting"}>Pelea</option>
+        <option value={"flying"}>Volador</option>
+        <option value={"poison"}>Veneno</option>
+        <option value={"ground"}>Tierra</option>
+        <option value={"rock"}>Roca</option>
+        <option value={"bug"}>Insecto</option>
+        <option value={"ghost"}>Fantasma</option>
+        <option value={"steel"}>Acero</option>
+        <option value={"fire"}>Fuego</option>
+        <option value={"water"}>Agua</option>
+        <option value={"grass"}>Hierba</option>
+        <option value={"electric"}>Electrico</option>
+        <option value={"psychic"}>Psiquico</option>
+        <option value={"ice"}>Hielo</option>
+        <option value={"dragon"}>Dragon</option>
+        <option value={"dark"}>Oscuro</option>
+        <option value={"fairy"}>Hada</option>
+        <option value={"unknown"}>Desconocido</option>
+        <option value={"shadow"}>Sombra</option>
       </select>
     </div>
   );

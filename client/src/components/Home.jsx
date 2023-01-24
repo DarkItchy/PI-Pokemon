@@ -4,11 +4,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getPokemon } from "../actions";
 import OptionBar from "./OptionBar";
-import Card from "./Card"
+import Card from "./Card";
+import Paginated from "./Paginated";
 
 const Home = () => {
   const dispatch = useDispatch();
   const allPokemon = useSelector((state) => state.pokemon);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pokemonPerPage, setPokemonPerPage] = useState(12);
+  const lastPokemon = currentPage * pokemonPerPage;
+  const firstPokemon = lastPokemon - pokemonPerPage;
+  const currentPokemon = allPokemon.slice(firstPokemon, lastPokemon);
+
+  const paginated = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   useEffect(() => {
     dispatch(getPokemon());
@@ -30,15 +40,20 @@ const Home = () => {
       >
         Cargar todos los Pokemón
       </button>
+      <Paginated
+        pokemonPerPage={pokemonPerPage}
+        allPokemon={allPokemon.length}
+        paginated={paginated}
+      />
       <OptionBar />
-      {allPokemon?.map( p => {
+      {currentPokemon?.map((p) => {
         return (
           <Fragment key={p.name}>
             <Link to={`/${p.name}`}>
-            <Card img={p.img} name={p.name} types={p.types}/>
+              <Card img={p.img} name={p.name} types={p.types} />
             </Link>
           </Fragment>
-        )
+        );
       })}
     </div>
   );

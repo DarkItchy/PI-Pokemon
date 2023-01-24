@@ -9,3 +9,10 @@ export const getPokemon = () => {
     });
   };
 };
+
+export const filterByType = () => {
+  return {
+    type: "FILTER_BY_TYPE",
+    payload,
+  };
+};

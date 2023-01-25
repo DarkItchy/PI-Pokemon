@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getPokemon } from "../actions";
+import { empty, getPokemon } from "../actions";
 import OptionBar from "./OptionBar";
 import Card from "./Card";
 import Paginated from "./Paginated";
@@ -30,7 +30,12 @@ const Home = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    dispatch(empty());
     dispatch(getPokemon());
+  };
+
+  const clear = (e) => {
+    dispatch(empty());
   };
 
   return (
@@ -38,8 +43,18 @@ const Home = () => {
       {allPokemon.length ? (
         <div>
           <h1>Escoge tu Pokemón</h1>
-          <Link to={"/"}><button>Pantalla principal</button></Link>
-          <Link to={"/createPokemon"}><button>Crear Pokemón</button></Link>
+          <Link to={"/"}>
+            <button
+              onClick={(e) => {
+                clear(e);
+              }}
+            >
+              Pantalla principal
+            </button>
+          </Link>
+          <Link to={"/createPokemon"}>
+            <button>Crear Pokemón</button>
+          </Link>
           <button
             onClick={(e) => {
               handleClick(e);

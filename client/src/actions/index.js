@@ -16,3 +16,23 @@ export const filterByType = (payload) => {
     payload,
   };
 };
+
+export const filterByCreated = (payload) => {
+  return {
+    type: "FILTER_BY_CREATED",
+    payload,
+  };
+};
+
+export const orderByName = (payload) => {
+  return {
+    type: "ORDER_BY_NAME",
+    payload,
+  };
+};
+
+export const empty = () => {
+  return {
+    type: "EMPTY",
+  };
+};

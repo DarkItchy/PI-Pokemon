@@ -31,6 +31,25 @@ export const orderByName = (payload) => {
   };
 };
 
+export const orderByAttack = (payload) => {
+  return {
+    type: "ORDER_BY_ATTACK",
+    payload,
+  };
+};
+
+export const getPokemonDetail = (id) => {
+  return async (dispatch) => {
+    const pokemonDetail = await axios.get(
+      `http://localhost:3001/pokemons/${id}`
+    );
+    return dispatch({
+      type: "GET_POKEMON_DETAIL",
+      payload: pokemonDetail.data[0],
+    });
+  };
+};
+
 export const empty = () => {
   return {
     type: "EMPTY",

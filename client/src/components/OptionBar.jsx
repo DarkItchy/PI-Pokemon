@@ -1,8 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { filterByCreated, filterByType } from "../actions";
+import {
+  filterByCreated,
+  filterByType,
+  orderByAttack,
+  orderByName,
+} from "../actions";
 
-const OptionBar = () => {
+const OptionBar = ({ setCurrentPage, setOrder }) => {
   const dispatch = useDispatch();
 
   const handleFilterByType = (e) => {
@@ -13,16 +18,38 @@ const OptionBar = () => {
     dispatch(filterByCreated(e.target.value));
   };
 
+  const handleOrderByName = (e) => {
+    dispatch(orderByName(e.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordenado ${e.target.value}`);
+  };
+
+  const handleOrderByAttack = (e) => {
+    dispatch(orderByAttack(e.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordenado ${e.target.value}`);
+  };
+
   return (
     <div>
       <h3>Ordenar</h3>
       Alfabeticamente:
-      <select title="Alfabeticamente">
+      <select
+        value={""}
+        onChange={(e) => handleOrderByName(e)}
+        title="Alfabeticamente"
+      >
+        <option value={"SN"}>Ordenar</option>
         <option value={"ASC"}>A-Z</option>
         <option value={"DES"}>Z-A</option>
       </select>
       Ataque:
-      <select title="Ataque">
+      <select
+        value={""}
+        onChange={(e) => handleOrderByAttack(e)}
+        title="Ataque"
+      >
+        <option value={"SN"}>Ordenar</option>
         <option value={"MAY"}>Mayor</option>
         <option value={"MEN"}>Menor</option>
       </select>

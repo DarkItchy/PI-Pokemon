@@ -14,6 +14,7 @@ const Home = () => {
   const pokeFilter = useSelector((state) => state.pokeFilter);
   const error = useSelector((state) => state.error);
 
+  const [order, setOrder] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [pokemonPerPage, setPokemonPerPage] = useState(12);
   const lastPokemon = currentPage * pokemonPerPage;
@@ -67,7 +68,7 @@ const Home = () => {
             allPokemon={pokeFilter.length}
             paginated={paginated}
           />
-          <OptionBar />
+          <OptionBar setCurrentPage={setCurrentPage} setOrder={setOrder} />
           <div className="cardsContainer">
             {error ? (
               <div className="cubone">
@@ -84,7 +85,7 @@ const Home = () => {
               currentPokemon?.map((p) => {
                 return (
                   <Fragment key={p.name}>
-                    <Link to={`/${p.name}`}>
+                    <Link to={`pokemons/${p.id}`}>
                       <Card img={p.img} name={p.name} types={p.types} />
                     </Link>
                   </Fragment>

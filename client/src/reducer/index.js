@@ -1,4 +1,4 @@
-import { filterType, filterCreated, orderName, orderAttack, } from "./Utils";
+import { filterType, filterCreated, orderName, orderAttack } from "./Utils";
 const initialState = {
   pokemon: [],
   allPokemon: [],
@@ -60,6 +60,17 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemon: [],
+        allPokemon: [],
+        pokeFilter: [],
+        pokeDetail: {},
+        pokeTypes: [],
+        error: false,
+      };
+
+    case "CLEAR_DETAIL":
+      return {
+        ...state,
+        pokeDetail: {},
       };
     default:
       return state;

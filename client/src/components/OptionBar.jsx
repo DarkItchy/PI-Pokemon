@@ -12,10 +12,12 @@ const OptionBar = ({ setCurrentPage, setOrder }) => {
 
   const handleFilterByType = (e) => {
     dispatch(filterByType(e.target.value));
+    setCurrentPage(1);
   };
 
   const handleFilterByCreated = (e) => {
     dispatch(filterByCreated(e.target.value));
+    setCurrentPage(1);
   };
 
   const handleOrderByName = (e) => {
@@ -55,13 +57,19 @@ const OptionBar = ({ setCurrentPage, setOrder }) => {
       </select>
       <h3>Filtrar</h3>
       Creado:
-      <select onChange={(e) => handleFilterByCreated(e)} title="Creado">
+      <select
+        value={""}
+        onChange={(e) => handleFilterByCreated(e)}
+        title="Creado"
+      >
+        <option value={"SN"}>Filtrar</option>
         <option value={"All"}>Todos</option>
         <option value={"Api"}>Existentes</option>
         <option value={"Db"}>Creados</option>
       </select>
       Tipo:
-      <select onChange={(e) => handleFilterByType(e)} title="Tipo">
+      <select value={""} onChange={(e) => handleFilterByType(e)} title="Tipo">
+        <option value={"SN"}>Filtrar</option>
         <option value={"All"}>Todos</option>
         <option value={"normal"}>Normal</option>
         <option value={"fighting"}>Pelea</option>

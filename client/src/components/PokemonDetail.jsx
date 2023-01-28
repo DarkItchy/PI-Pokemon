@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemonDetail } from "../actions";
+import { clearDetail, getPokemonDetail } from "../actions";
 import { useEffect } from "react";
+import Loader from "./Loader";
 
 const PokemonDetail = (props) => {
   const dispatch = useDispatch();
@@ -11,7 +12,11 @@ const PokemonDetail = (props) => {
   }, [dispatch]);
 
   const pokemon = useSelector((state) => state.pokeDetail);
-  console.log(pokemon)
+
+  const handleClick = (e) => {
+    dispatch(clearDetail());
+  };
+
   return (
     <div>
       {pokemon.name ? (
@@ -23,22 +28,28 @@ const PokemonDetail = (props) => {
             width={"200px"}
             height={"250px"}
           />
-          <h3>{pokemon.id}</h3>
-          <h2>{pokemon.hp}</h2>
-          <h2>{pokemon.atk}</h2>
-          <h2>{pokemon.def}</h2>
-          <h2>{pokemon.spatk}</h2>
-          <h2>{pokemon.spdef}</h2>
-          <h2>{pokemon.speed}</h2>
-          <h2>{pokemon.height}</h2>
-          <h2>{pokemon.weight}</h2>
-          <h2>{pokemon.types}</h2>
+          <h3>ID: {pokemon.id}</h3>
+          <h2>Vida: {pokemon.hp}</h2>
+          <h2>Ataque: {pokemon.atk}</h2>
+          <h2>Defensa: {pokemon.def}</h2>
+          <h2>Ataque especial: {pokemon.spatk}</h2>
+          <h2>Defensa especial: {pokemon.spdef}</h2>
+          <h2>Velocidad: {pokemon.speed}</h2>
+          <h2>Altura: {pokemon.height}</h2>
+          <h2>Peso: {pokemon.weight}</h2>
+          <div>
+            <h2>Tipos:</h2>
+            {pokemon.types.map((t) => {
+              const name = typeof t === "object" ? t.name : t;
+              return <h2 key={name}>{name}</h2>;
+            })}
+          </div>
         </div>
       ) : (
-        <p>Cargando...</p>
+        <Loader />
       )}
       <Link to={"/home"}>
-        <button>Regresar</button>
+        <button onClick={(e) => handleClick(e)}>Regresar</button>
       </Link>
     </div>
   );

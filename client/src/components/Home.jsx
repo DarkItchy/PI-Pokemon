@@ -26,7 +26,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    dispatch(getPokemon());
+    if (allPokemon.length === 0) dispatch(getPokemon());
   }, []);
 
   const handleClick = (e) => {

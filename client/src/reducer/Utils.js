@@ -53,3 +53,11 @@ export const orderAttack = (act, pok) => {
     });
   } else return pok;
 };
+
+export const getName = (act, pok) => {
+  const pokemonByName = pok.filter(
+    (pokemon) => pokemon.name.toLowerCase().includes(act.payload)
+    //pokemon.name.toLowerCase() === (act.payload)
+  );
+  return pokemonByName;
+};

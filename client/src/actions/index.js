@@ -1,17 +1,17 @@
 import axios from "axios";
 
 export const getPokemon = () => {
-  try {
-    return async function (dispatch) {
+  return async function (dispatch) {
+    try {
       const pokemon = await axios.get("http://localhost:3001/pokemons");
       return dispatch({
         type: "GET_POKEMON",
         payload: pokemon.data,
       });
-    };
-  } catch (e) {
-    console.log(e);
-  }
+    } catch (e) {
+      console.log(e, "Error al traer todos los Pokemon del back");
+    }
+  };
 };
 
 export const filterByType = (payload) => {
@@ -43,8 +43,8 @@ export const orderByAttack = (payload) => {
 };
 
 export const getPokemonDetail = (id) => {
-  try {
-    return async (dispatch) => {
+  return async (dispatch) => {
+    try {
       const pokemonDetail = await axios.get(
         `http://localhost:3001/pokemons/${id}`
       );
@@ -52,9 +52,57 @@ export const getPokemonDetail = (id) => {
         type: "GET_POKEMON_DETAIL",
         payload: pokemonDetail.data[0],
       });
+    } catch (e) {
+      console.log(e, "Error al traer el detalle del Pokemon del back");
+    }
+  };
+};
+
+export const getPokemonByName = (name) => {
+  return {
+    type: "GET_POKEMON_BY_NAME",
+    payload: name,
+  };
+};
+
+// export const getPokemonByName = (name) => {
+//   return async (dispatch) => {
+//     try {
+//       const pokemonName = await axios.get(
+//         `http://localhost:3001/pokemons?name=${name}`
+//       );
+//       return dispatch({
+//         type: "GET_POKEMON_BY_NAME",
+//         payload: pokemonName.data,
+//       });
+//     } catch (e) {
+//       console.log(e);
+//     }
+//   };
+// };
+
+export const getTypes = () => {
+  return async (dispatch) => {
+    try {
+      const types = await axios.get("http://localhost:3001/types");
+      return dispatch({
+        type: "GET_TYPES",
+        payload: types.data,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export const postPokemon = (payload) => {
+  try {
+    return async (dispatch) => {
+      const crear = axios.post("http://localhost:3001/pokemons", payload);
+      return crear;
     };
   } catch (e) {
-    console.log(e);
+    console.log(e, "Error en la acción de crear al personaje");
   }
 };
 

@@ -1,6 +1,11 @@
-import { filterType, filterCreated, orderName, orderAttack } from "./Utils";
+import {
+  filterType,
+  filterCreated,
+  orderName,
+  orderAttack,
+  getName,
+} from "./Utils";
 const initialState = {
-  pokemon: [],
   allPokemon: [],
   pokeFilter: [],
   pokeDetail: {},
@@ -15,7 +20,6 @@ const rootReducer = (state = initialState, action) => {
     case "GET_POKEMON":
       return {
         ...state,
-        pokemon: action.payload,
         allPokemon: action.payload,
         pokeFilter: action.payload,
       };
@@ -56,10 +60,28 @@ const rootReducer = (state = initialState, action) => {
         pokeDetail: { ...action.payload },
       };
 
+    case "GET_POKEMON_BY_NAME":
+      const stateName = getName(action, allPokemon);
+      return {
+        ...state,
+        pokeFilter: stateName,
+        error: !stateName.length ? true : false,
+      };
+
+    case "GET_TYPES":
+      return {
+        ...state,
+        pokeTypes: action.payload,
+      };
+
+    case "POST_POKEMON":
+      return {
+        ...state,
+      };
+
     case "EMPTY":
       return {
         ...state,
-        pokemon: [],
         allPokemon: [],
         pokeFilter: [],
         pokeDetail: {},

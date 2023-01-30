@@ -7,10 +7,11 @@ import OptionBar from "./OptionBar";
 import Card from "./Card";
 import Paginated from "./Paginated";
 import Loader from "./Loader";
+import SearchBar from "./SearchBar";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const allPokemon = useSelector((state) => state.pokemon);
+  const allPokemon = useSelector((state) => state.allPokemon);
   const pokeFilter = useSelector((state) => state.pokeFilter);
   const error = useSelector((state) => state.error);
 
@@ -63,6 +64,7 @@ const Home = () => {
           >
             Cargar todos los Pokemón
           </button>
+          <SearchBar/>
           <Paginated
             pokemonPerPage={pokemonPerPage}
             allPokemon={pokeFilter.length}

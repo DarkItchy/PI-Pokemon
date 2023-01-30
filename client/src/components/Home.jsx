@@ -55,7 +55,7 @@ const Home = () => {
             </button>
           </Link>
           <Link to={"/createPokemon"}>
-            <button>Crear Pokemón</button>
+            <button>Registrar nuevo Pokemón</button>
           </Link>
           <button
             onClick={(e) => {
@@ -64,7 +64,7 @@ const Home = () => {
           >
             Cargar todos los Pokemón
           </button>
-          <SearchBar/>
+          <SearchBar />
           <Paginated
             pokemonPerPage={pokemonPerPage}
             allPokemon={pokeFilter.length}

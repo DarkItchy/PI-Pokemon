@@ -85,7 +85,6 @@ const rootReducer = (state = initialState, action) => {
         allPokemon: [],
         pokeFilter: [],
         pokeDetail: {},
-        pokeTypes: [],
         error: false,
       };
 

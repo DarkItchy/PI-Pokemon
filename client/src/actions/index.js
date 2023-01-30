@@ -96,14 +96,14 @@ export const getTypes = () => {
 };
 
 export const postPokemon = (payload) => {
-  try {
-    return async (dispatch) => {
+  return async (dispatch) => {
+    try {
       const crear = axios.post("http://localhost:3001/pokemons", payload);
       return crear;
-    };
-  } catch (e) {
-    console.log(e, "Error en la acción de crear al personaje");
-  }
+    } catch (e) {
+      console.log(e, "Error en la acción de crear al personaje");
+    }
+  };
 };
 
 export const empty = () => {

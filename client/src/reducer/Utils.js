@@ -23,15 +23,15 @@ export const filterCreated = (act, allP) => {
 export const orderName = (act, pok) => {
   if (act.payload === "ASC") {
     return pok.sort(function (a, b) {
-      if (a.name > b.name) return 1;
-      if (a.name < b.name) return -1;
+      if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+      if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
       return 0;
     });
   }
   if (act.payload === "DES") {
     return pok.sort(function (a, b) {
-      if (a.name > b.name) return -1;
-      if (a.name < b.name) return 1;
+      if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+      if (a.name.toLowerCase()< b.name.toLowerCase()) return 1;
       return 0;
     });
   } else return pok;

@@ -11,7 +11,7 @@ const newPokemon = async (params) => {
     speed: params.speed,
     height: params.height,
     weight: params.weight,
-    img: params.img,
+    img: params.img ? params.img : "https://i.ytimg.com/vi/3cLbFhxYPFY/maxresdefault.jpg",
   });
 
   const typesDb = await Type.findAll({

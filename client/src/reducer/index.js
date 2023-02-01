@@ -74,11 +74,6 @@ const rootReducer = (state = initialState, action) => {
         pokeTypes: action.payload,
       };
 
-    case "POST_POKEMON":
-      return {
-        ...state,
-      };
-
     case "EMPTY":
       return {
         ...state,

@@ -8,6 +8,8 @@ import Card from "./Card";
 import Paginated from "./Paginated";
 import Loader from "./Loader";
 import SearchBar from "./SearchBar";
+import "./css/Home.css";
+import Cubone from "./Cubone";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -41,10 +43,15 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="homeContainer">
       {allPokemon.length ? (
         <div>
-          <h1>Escoge tu Pokemón</h1>
+          <div>
+            <img
+              src="https://fontmeme.com/permalink/230201/03019017c89b0f4e4e92e3b9f4ee56e8.png"
+              alt="¡Atrapalos Ya!"
+            />
+          </div>
           <Link to={"/"}>
             <button
               onClick={(e) => {
@@ -64,7 +71,7 @@ const Home = () => {
           >
             Cargar todos los Pokemón
           </button>
-          <SearchBar />
+          <SearchBar setCurrentPage={setCurrentPage} />
           <Paginated
             pokemonPerPage={pokemonPerPage}
             allPokemon={pokeFilter.length}
@@ -73,21 +80,12 @@ const Home = () => {
           <OptionBar setCurrentPage={setCurrentPage} setOrder={setOrder} />
           <div className="cardsContainer">
             {error ? (
-              <div className="cubone">
-                <h2>No se encontraron coincidencias</h2>
-                <img
-                  src={
-                    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8e6c39c7-7710-4e4b-a7b4-8ab11887e367/d3e9aqo-c90d99f9-a88b-4dda-99f6-9cfc356e8324.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhlNmMzOWM3LTc3MTAtNGU0Yi1hN2I0LThhYjExODg3ZTM2N1wvZDNlOWFxby1jOTBkOTlmOS1hODhiLTRkZGEtOTlmNi05Y2ZjMzU2ZTgzMjQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.9hnGVhCl3W3NZMwJ1y2GkfJZLwnOM2cbYBOzRUFkgJE"
-                  }
-                  alt="imagen"
-                  width={"200px"}
-                />
-              </div>
+              <Cubone />
             ) : (
               currentPokemon?.map((p) => {
                 return (
                   <Fragment key={p.name}>
-                    <Link to={`pokemons/${p.id}`}>
+                    <Link to={`pokemons/${p.id}`} style={{ textDecoration: 'none' }}>
                       <Card img={p.img} name={p.name} types={p.types} />
                     </Link>
                   </Fragment>

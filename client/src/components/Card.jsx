@@ -1,19 +1,20 @@
 import React from "react";
+import "./css/Card.css"
 
 const Card = ({ img, name, types }) => {
   return (
-    <div>
-      <img
+    <div className="card">
+      <img className="cardImg"
         src={img}
         alt="Imagen no encontrada"
-        width={"200px"}
-        height={"250px"}
       />
-      <h3>{name}</h3>
+      <h3 className="pokeName">{name}</h3>
+      <div className="typesContainer">
       {types.map((t) => {
         const name = typeof t === "object" ? t.name : t;
-        return <h5 key={name}>{name}</h5>;
+        return <h5 className="type" key={name}>{name}</h5>;
       })}
+      </div>
     </div>
   );
 };

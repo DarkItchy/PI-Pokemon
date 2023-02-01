@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getPokemonByName } from "../actions";
 
-const SearchBar = () => {
+const SearchBar = ({setCurrentPage}) => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
 
@@ -13,12 +13,14 @@ const SearchBar = () => {
     name = name.join(" ").trimStart();
     setSearch(name);
     dispatch(getPokemonByName(name));
+    setCurrentPage(1)
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(getPokemonByName(search));
     setSearch("");
+    setCurrentPage(1)
   };
 
   return (

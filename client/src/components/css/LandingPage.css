@@ -1,0 +1,28 @@
+.landingPage {
+  background-image: url("https://images5.alphacoders.com/950/thumb-1920-950765.png");
+  background-size: 100% 100%;
+  width: 100%;
+  min-height: 95vh;
+  padding-top: 37px;
+}
+
+.pokeButton {
+    background-image: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/384.png");
+    background-color: transparent;
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-color: transparent;
+    position: absolute;
+    right: 1200px;
+    top: 400px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.50);
+}
+
+.pokeButton:hover {
+    cursor: pointer;
+    width: 210px;
+    height: 210px;
+    transition: 0.5s; 
+}

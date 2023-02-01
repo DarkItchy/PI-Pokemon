@@ -63,14 +63,14 @@ const validate = (value, pokemon) => {
   }
   if (value.height) {
     if (
-      value.height <= 1 ||
+      value.height < 1 ||
       value.height > 200 ||
       !Number.isInteger(parseFloat(value.height))
     )
       errors.height = "La altura debe tener un valor entre 1-200";
   }
   if (value.weight) {
-    if (value.weight <= 1 || value.weight > 1000)
+    if (value.weight < 1 || value.weight > 1000)
       errors.weight = "El peso debe tener un valor entre 1-1000";
   }
   if (value.types) {

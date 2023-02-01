@@ -50,7 +50,7 @@ export const getPokemonDetail = (id) => {
       );
       return dispatch({
         type: "GET_POKEMON_DETAIL",
-        payload: pokemonDetail.data[0],
+        payload: pokemonDetail.data,
       });
     } catch (e) {
       console.log(e, "Error al traer el detalle del Pokemon del back");

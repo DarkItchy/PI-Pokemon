@@ -54,6 +54,7 @@ const Home = () => {
           </div>
           <Link to={"/"}>
             <button
+              className="homeButton"
               onClick={(e) => {
                 clear(e);
               }}
@@ -62,9 +63,10 @@ const Home = () => {
             </button>
           </Link>
           <Link to={"/createPokemon"}>
-            <button>Registrar nuevo Pokemón</button>
+            <button className="homeButton">Registrar nuevo Pokemón</button>
           </Link>
           <button
+            className="homeButton"
             onClick={(e) => {
               handleClick(e);
             }}
@@ -76,6 +78,7 @@ const Home = () => {
             pokemonPerPage={pokemonPerPage}
             allPokemon={pokeFilter.length}
             paginated={paginated}
+            currentPage={currentPage}
           />
           <OptionBar setCurrentPage={setCurrentPage} setOrder={setOrder} />
           <div className="cardsContainer">
@@ -85,7 +88,10 @@ const Home = () => {
               currentPokemon?.map((p) => {
                 return (
                   <Fragment key={p.name}>
-                    <Link to={`pokemons/${p.id}`} style={{ textDecoration: 'none' }}>
+                    <Link
+                      to={`pokemons/${p.id}`}
+                      style={{ textDecoration: "none" }}
+                    >
                       <Card img={p.img} name={p.name} types={p.types} />
                     </Link>
                   </Fragment>

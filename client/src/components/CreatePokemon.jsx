@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { postPokemon, getTypes, empty } from "../actions";
 import { useDispatch, useSelector } from "react-redux";
 import validate from "./validate/validate";
+import "./css/CreatePokemon.css";
 
 const CreatePokemon = () => {
   const dispatch = useDispatch();
@@ -103,172 +104,192 @@ const CreatePokemon = () => {
   }, []);
 
   return (
-    <div>
+    <div className="createPokemonContainer">
       <Link to={"/home"}>
-        <button>Regresar</button>
+        <button className="buttonBack">Regresar</button>
       </Link>
-      <h1>Registra el nuevo Pokemon descubierto</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label>Nombre:</label>
-          <input
-            type="text"
-            value={input.name}
-            name="name"
-            placeholder="Nombremon"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.name && <p className="pStyled">{error.name}</p>}
-        <div>
-          <label>Vida:</label>
-          <input
-            type="number"
-            value={input.hp}
-            name="hp"
-            placeholder="1-255"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.hp && <p className="pStyled">{error.hp}</p>}
-        <div>
-          <label>Ataque:</label>
-          <input
-            type="number"
-            value={input.atk}
-            name="atk"
-            placeholder="5-190"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.atk && <p className="pStyled">{error.atk}</p>}
-        <div>
-          <label>Defensa:</label>
-          <input
-            type="number"
-            value={input.def}
-            name="def"
-            placeholder="5-250"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.def && <p className="pStyled">{error.def}</p>}
-        <div>
-          <label>Ataque especial:</label>
-          <input
-            type="number"
-            value={input.spatk}
-            name="spatk"
-            placeholder="10-165"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.spatk && <p className="pStyled">{error.spatk}</p>}
-        <div>
-          <label>Defensa especial:</label>
-          <input
-            type="number"
-            value={input.spdef}
-            name="spdef"
-            placeholder="20-250"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.spdef && <p className="pStyled">{error.spdef}</p>}
-        <div>
-          <label>Velocidad:</label>
-          <input
-            type="number"
-            value={input.speed}
-            name="speed"
-            placeholder="5-200"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.speed && <p className="pStyled">{error.speed}</p>}
-        <div>
-          <label>Altura(dm):</label>
-          <input
-            type="number"
-            value={input.height}
-            name="height"
-            placeholder="1-200"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.height && <p className="pStyled">{error.height}</p>}
-        <div>
-          <label>Peso(hg):</label>
-          <input
-            type="number"
-            value={input.weight}
-            name="weight"
-            placeholder="1-1000"
-            required
-            onChange={handleChange}
-          />
-        </div>
-        {error.weight && <p className="pStyled">{error.weight}</p>}
-        <div>
-          <label>Apariencia:</label>
-          <input
-            type="text"
-            value={input.img}
-            name="img"
-            placeholder="URL de la imagen"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <h3>Tipos:</h3>
-          {types.map((t) => (
-            <div key={t.id}>
-              <label>{t.name}</label>
-              <input
-                type={"checkbox"}
-                value={t.name}
-                name={t.name}
-                onChange={(e) => handleCheck(e)}
-              />
-            </div>
-          ))}
-        </div>
-        {error.types && <p className="pStyled">{error.types}</p>}
-        <button
-          type="submit"
-          disabled={
-            // !input.name ||
-            // !input.hp ||
-            // !input.atk ||
-            // !input.def ||
-            // !input.spatk ||
-            // !input.spdef ||
-            // !input.speed ||
-            // !input.height ||
-            // !input.weight ||
-            error.name ||
-            error.hp ||
-            error.atk ||
-            error.def ||
-            error.spatk ||
-            error.spdef ||
-            error.speed ||
-            error.height ||
-            error.weight ||
-            error.types
-          }
-        >
-          Registrar Pokemon
-        </button>
-      </form>
+      <img
+        className="img"
+        src="https://fontmeme.com/permalink/230201/af944febd0bb0722310f90e0725d11e2.png"
+        alt="Algo"
+      />
+      <div className="formContainer">
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="form" >
+          <div>
+            <label className="formLabel">Nombre:</label>
+            <input
+              type="text"
+              value={input.name}
+              name="name"
+              placeholder="Nombremon"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Vida:</label>
+            <input
+              type="number"
+              value={input.hp}
+              name="hp"
+              placeholder="1-255"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Ataque:</label>
+            <input
+              type="number"
+              value={input.atk}
+              name="atk"
+              placeholder="5-190"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Defensa:</label>
+            <input
+              type="number"
+              value={input.def}
+              name="def"
+              placeholder="5-250"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Ataque especial:</label>
+            <input
+              type="number"
+              value={input.spatk}
+              name="spatk"
+              placeholder="10-165"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Defensa especial:</label>
+            <input
+              type="number"
+              value={input.spdef}
+              name="spdef"
+              placeholder="20-250"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Velocidad:</label>
+            <input
+              type="number"
+              value={input.speed}
+              name="speed"
+              placeholder="5-200"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Altura(dm):</label>
+            <input
+              type="number"
+              value={input.height}
+              name="height"
+              placeholder="1-200"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Peso(hg):</label>
+            <input
+              type="number"
+              value={input.weight}
+              name="weight"
+              placeholder="1-1000"
+              required
+              onChange={handleChange}
+            />
+          </div>
+          
+          <div>
+            <label className="formLabel">Apariencia:</label>
+            <input
+              type="text"
+              value={input.img}
+              name="img"
+              placeholder="URL de la imagen"
+              onChange={handleChange}
+            />
+          </div>
+          </div>
+          <h3 className="typesTittle">Tipos:</h3>
+          <div className="typesCreate">
+            {types.map((t) => (
+              <div className="typeCreate" key={t.id}>
+                <label >{t.name}</label>
+                <input
+                  type={"checkbox"}
+                  value={t.name}
+                  name={t.name}
+                  onChange={(e) => handleCheck(e)}
+                />
+              </div>
+            ))}
+          </div>
+          <div>
+          {error.name && <p className="pStyled">{error.name}</p>}
+          {error.hp && <p className="pStyled">{error.hp}</p>}
+          {error.atk && <p className="pStyled">{error.atk}</p>}
+          {error.def && <p className="pStyled">{error.def}</p>}
+          {error.spatk && <p className="pStyled">{error.spatk}</p>}
+          {error.spdef && <p className="pStyled">{error.spdef}</p>}
+          {error.speed && <p className="pStyled">{error.speed}</p>}
+          {error.height && <p className="pStyled">{error.height}</p>}
+          {error.weight && <p className="pStyled">{error.weight}</p>}
+          {error.types && <p className="pStyled">{error.types}</p>}
+          </div>
+          <button
+          className="submitButton"
+            type="submit"
+            disabled={
+              // !input.name ||
+              // !input.hp ||
+              // !input.atk ||
+              // !input.def ||
+              // !input.spatk ||
+              // !input.spdef ||
+              // !input.speed ||
+              // !input.height ||
+              // !input.weight ||
+              error.name ||
+              error.hp ||
+              error.atk ||
+              error.def ||
+              error.spatk ||
+              error.spdef ||
+              error.speed ||
+              error.height ||
+              error.weight ||
+              error.types
+            }
+          >
+            Registrar Pokemon
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

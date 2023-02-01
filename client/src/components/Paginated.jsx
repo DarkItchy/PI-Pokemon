@@ -1,6 +1,7 @@
 import React from "react";
+import "./css/Paginated.css";
 
-const Paginated = ({ pokemonPerPage, allPokemon, paginated }) => {
+const Paginated = ({ pokemonPerPage, allPokemon, paginated, currentPage }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(allPokemon / pokemonPerPage); i++) {
@@ -8,16 +9,20 @@ const Paginated = ({ pokemonPerPage, allPokemon, paginated }) => {
   }
 
   return (
-    <nav>
-      <ul>
+    <div className="paginatedContainer">
+      <div className="paginatedButtonContainer">
         {pageNumbers &&
           pageNumbers.map((number) => (
-            <li key={number}>
-              <button onClick={() => paginated(number)}>{number}</button>
-            </li>
+            <button
+              className={
+                currentPage !== number ? "paginatedButton" : "buttonSelect"
+              }
+              key={number}
+              onClick={() => paginated(number)}
+            ></button>
           ))}
-      </ul>
-    </nav>
+      </div>
+    </div>
   );
 };
 

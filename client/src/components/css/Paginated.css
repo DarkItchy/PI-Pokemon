@@ -1,0 +1,38 @@
+.paginatedContainer {
+    margin: 20px 0;
+    margin-bottom: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.paginatedButtonContainer {
+    width: 250px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.paginatedButton {
+    background-image: url("https://png.pngitem.com/pimgs/s/107-1075333_pokeball-pixel-art-png-transparent-png.png");
+    background-size: 100% 100%;
+    border-radius: 50%;
+    border: transparent;
+    width: 2rem;
+    height: 2rem;
+}
+
+.paginatedButton:hover {
+    box-shadow: 0 0 30px rgba(132, 30, 148, 0.800);
+    transform: scale(1.06);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.buttonSelect {
+    background-image: url("https://spng.pngfind.com/pngs/s/248-2488705_master-ball-pokeball-pixel-art-hd-png-download.png");
+    background-size: 100% 100%;
+    border-radius: 50%;
+    border: 2px groove #7715a8;
+    width: 2rem;
+    height: 2rem;
+}

@@ -1,0 +1,100 @@
+.createPokemonContainer {
+    background-image: url("https://external-preview.redd.it/JX0pXRFqZEdu56vzb97o-Ls3Jd9w5GBZEE_JmKEWmYk.png?format=pjpg&auto=webp&s=550f6b3a9ff6bda8d734251cdfcf3b3d3d95ad8c");
+    background-size: 100% 100%;
+    min-height: 100vh;
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+ .form {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.typesCreate{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 600px;
+}
+
+.formLabel {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.formContainer input{
+    border-radius: 25px;
+    border: 2px solid #7715a8;
+    text-align: center;
+}
+
+.formContainer input:hover{
+    border: 2px solid #9c5512b0;
+    transition: all 0.5s;
+}
+
+
+.pStyled{
+    margin: 0;
+    font-size: 0.75rem;
+    color: #e92929;
+}
+
+.buttonBack{
+    border: 2px solid #7715a8;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 32px;
+    margin-top: 12px;
+    margin-left: 10px;
+    position: absolute;
+    right:1350px;
+    top: 650px;
+}
+
+.buttonBack:hover {
+    border: 2px solid #9c5512b0;
+    transition: all 0.5s;
+}
+
+.submitButton {
+    border: 2px solid #7715a8;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 12px;
+    margin-left: 10px;
+}
+
+.submitButton:hover {
+    border: 2px solid #9c5512b0;
+    transition: all 0.5s;
+}
+
+.img {
+    margin-top: 15px;
+}
+/*
+.typesTittle{
+    background-color: #9c5512fc;
+    color: #ffffffde;
+    border-radius: 25px;
+    width: 80%;
+    position: absolute;
+    right: 130px;
+    top: 360px;
+    font-size: 30px;
+}
+
+.typesCreate {
+    width: 80%;
+    height: 30%;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    position: absolute;
+    right: 130px;
+    top: 450px;
+} */

@@ -1,10 +1,9 @@
 .homeContainer {
-    margin: 0;
+  background-image: url("https://i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png");
+  background-size: 100% 100%;
     width: 100%;
-    min-height: 85vh;
-    background-image: url("https://i.pinimg.com/originals/df/4e/8b/df4e8ba28f912bf9cdf9fa0dfc196411.png");
-    background-size: cover;
-    padding-bottom: 25px;
+    min-height: 95vh;
+    padding-bottom: 37px;
 }
 
 .cardsContainer {
@@ -14,4 +13,18 @@
   row-gap: 1.5rem;
   justify-content: space-between;
   margin: 0 auto;
+}
+
+.homeButton {
+  border: 2px solid #7715a8;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 12px;
+  margin-left: 10px;
+}
+
+.homeButton:hover {
+  border: 2px solid #9c5512b0;
+  transition: all 0.5s;
 }

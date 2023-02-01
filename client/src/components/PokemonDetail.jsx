@@ -53,7 +53,7 @@ const PokemonDetail = (props) => {
         <Loader />
       )}
       <Link to={"/home"}>
-        <button className="button" onClick={(e) => handleClick(e)}>Regresar</button>
+        <button className="buttonDetail" onClick={(e) => handleClick(e)}>Regresar</button>
       </Link>
     </div>
   );

@@ -30,7 +30,7 @@ const apiInfo = async () => {
   try {
     let id = 252;
     let arr = [];
-    while (id > 251 && id < 387) {
+    while (id > 251 && id < 293) {
       /*id > 251 && id < 387 para traer toda la generación*/ arr.push(
         await pokemonInfoById(id)
       );

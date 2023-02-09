@@ -1,5 +1,21 @@
 import axios from "axios";
 
+// export const getPokemon = () => {
+//   return function (dispatch) {
+//     const pokemon = axios.get("http://localhost:3001/pokemons");
+//     return pokemon
+//       .then(function (param) {
+//         return dispatch({
+//           type: "GET_POKEMON",
+//           payload: param.data,
+//         });
+//       })
+//       .catch(function (e) {
+//         console.log(e);
+//       });
+//   };
+// };
+
 export const getPokemon = () => {
   return async function (dispatch) {
     try {

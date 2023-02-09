@@ -13,7 +13,7 @@ const SearchBar = ({setCurrentPage}) => {
     e.target.value.split("  ").map((el) => name.push(el));
     name = name.join(" ").trimStart();
     setSearch(name);
-    dispatch(getPokemonByName(name));
+    dispatch(getPokemonByName(name.toLowerCase()));
     setCurrentPage(1)
   };
 
